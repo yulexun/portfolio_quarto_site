@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Lexun Yu"
+  site-url: "/docs/"
   navbar:
     left:
       - href: index.qmd
@@ -14,7 +15,6 @@ website:
     right:
       - href: "https://prpr.one"
         text: "⬅️ Back to PRPR.ONE"
-  site-url: /docs/
 
 format:
   html:
