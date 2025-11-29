@@ -1,0 +1,21 @@
+[
+  {
+    "listing": "/posts/writingsamples.html",
+    "items": [
+      "/posts/firstpost.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/firstpost.html",
+      "/posts/writingsamples.html"
+    ]
+  },
+  {
+    "listing": "/posts/firstpost.html",
+    "items": [
+      "/posts/writingsamples.html"
+    ]
+  }
+]

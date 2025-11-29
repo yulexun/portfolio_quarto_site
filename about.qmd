@@ -1,0 +1,34 @@
+---
+title: "Lexun Yu"
+image: './images/about/profile.webp'
+about:
+  template: solana
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/lexun-yu
+    - icon: github
+      text: GitHub
+      href: https://github.com/yulexun
+    - icon: envelope
+      text: Email
+      href: mailto:lyu@prpr.one
+---
+
+# About Me
+
+I'm Lexun Yu, a tech enthusiast based in Beijing with experience in cloud, DevOps, and web development. I enjoy building scalable systems and interactive fictions, and have a strong interest in automation and open source.
+
+## Skills
+
+- Python, R, SQL, HTML, CSS, JavaScript, Bash, YAML
+- Docker, Linux containers, Kubernetes, Azure, Networking
+- Git, GitHub Actions, Terraform, Ansible, FluxCD, Prometheus, Grafana, Jupyter, Quarto, Typst
+
+## Education
+
+- University of Toronto
+
+## Certifications
+
+- CompTIA Network+ (2024)

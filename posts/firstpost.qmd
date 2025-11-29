@@ -1,0 +1,18 @@
+---
+title: "Welcome to My Blog"
+description: "Introduction to the blog"
+author: "Lexun Yu"
+date: "2025-11-18"
+
+categories:
+  - introduction
+---
+
+Welcome to my blog! This is the first post where I introduce myself and what this blog is about.
+
+## What to Expect
+
+- My thoughts on movies, shows and books
+- Personal projects and updates
+
+Stay tuned for more content!

@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+// Base document colors
+$body-bg: floralwhite;
+$body-color: #151515;
+$link-color: maroon;
+$link-hover-color: #800000;
+
+// Fonts
+$font-family-sans-serif: "Source Serif 4", serif;
+
+// Navigation
+$navbar-bg: rgb(255, 237, 200);
+$navbar-fg: #000;
+$navbar-hl: maroon;
+
+// Sidebar
+$sidebar-bg: #e88a8a;
+$sidebar-fg: #000;
+$sidebar-hl: maroon;
+
+// TOC
+$toc-color: #151515;
+$toc-active-border: maroon;
+$toc-inactive-border: #ddd;
+
+// Code blocks
+$code-block-bg: rgba(0, 0, 0, 0.05);
+$code-color: #000;
+
+// Inline code
+$code-bg: rgba(0, 0, 0, 0.1);
+$code-color: #000;

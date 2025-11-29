@@ -1,0 +1,25 @@
+---
+title: "Portfolio"
+---
+
+## Projects
+
+### PRPR.ONE (Personal Website)
+
+A self-hosted website featuring an original interactive fiction game, built with HTML, CSS, JavaScript (frontend), Node.js/Express (backend), and CloudNativePG. Deployed on a home Kubernetes cluster with CI/CD, auto-scaling, and automated backups.
+
+**[Visit -›](https://prpr.one)**
+
+### The Lost Magic (Interactive Fiction)
+
+![](./images/portfolio/galatea-wide.webp){style="float: right; margin: 10px;" width=20% .lightbox}
+
+A proof-of-concept interactive novel inspired by Emily Short's Galatea. Built with web technologies and the Twine/SugarCube framework, featuring pre-rendered visuals and a branching narrative.
+
+**[Visit -›](https://galatea.prpr.one)**
+
+## Writing Samples
+
+Explore my writings on literature reviews, book and movie critiques, and cultural and media studies.
+
+**[Visit -›](posts/writingsamples.qmd)**

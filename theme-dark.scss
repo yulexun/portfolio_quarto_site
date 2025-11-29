@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+// Base document colors
+$body-bg: #181818;
+$body-color: #ccc;
+$link-color: #f05b5b; // lighter maroon
+$link-hover-color: #ff8787; // even lighter
+
+// Fonts
+$font-family-sans-serif: "Source Serif 4", serif;
+
+// Navigation
+$navbar-bg: #333;
+$navbar-fg: #f8f9fa;
+$navbar-hl: #f05b5b;
+
+// Sidebar
+$sidebar-bg: #444;
+$sidebar-fg: #f8f9fa;
+$sidebar-hl: #bb3a3a;
+
+// TOC
+$toc-color: #ccc;
+$toc-active-border: #bb3a3a;
+$toc-inactive-border: #666;
+
+// Code blocks
+$code-block-bg: rgba(255, 255, 255, 0.1);
+$code-color: #ccc;
+
+// Inline code
+$code-bg: rgba(255, 255, 255, 0.2);
+$code-color: #ccc;

@@ -1,0 +1,21 @@
+---
+title: "Writing Samples"
+description: "Collection of my writings"
+author: "Lexun Yu"
+date: "2025-11-18"
+lastmodified: "2025-11-18"
+
+categories:
+  - writing
+  - media studies
+---
+
+# Essays and Case Studies
+
+- [Case Study: Media Ethic Analysis of John Naughton's AI Cheating Article](../writingsamples/MediaEthicsJohn/MediaEthicsJohn.qmd)
+- [*Ghost in the Shell*, Cities and Modernity in Japan](../writingsamples/GhostInTheShell/GhostInTheShell.qmd)
+
+# Research Paper (Statistics)
+
+- [Exploring Nonlinear Atmospheric Influences on Temperature Using Polynomial Regression at Vancouver International Airport](https://github.com/yulexun/ClimateChangeYVR)
+
