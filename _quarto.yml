@@ -14,6 +14,7 @@ website:
     right:
       - href: "https://prpr.one"
         text: "⬅️ Back to PRPR.ONE"
+  site-url: /docs/
 
 format:
   html:
