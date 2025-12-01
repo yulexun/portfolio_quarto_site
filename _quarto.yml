@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "**LY**"
+  title: "LY"
   site-url: https://blog.prpr.one
   navbar:
     left:
@@ -16,6 +16,7 @@ website:
     right:
       - href: "https://prpr.one"
         text: "⬅️ *Back to PRPR.ONE*"
+  favicon: images/favicon.ico
   
 format:
   html:
