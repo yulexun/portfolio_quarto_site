@@ -20,6 +20,6 @@ A proof-of-concept interactive novel inspired by Emily Short's Galatea. Built wi
 
 ## Writing Samples
 
-Explore my writings on literature reviews, book and movie critiques, and cultural and media studies.
+Explore my writing on literature reviews, book and movie critiques, as well as cultural and media studies.
 
 **[Visit -›](posts/writingsamples.qmd)**
