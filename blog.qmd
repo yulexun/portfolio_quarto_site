@@ -1,8 +1,12 @@
 ---
 title: "Blog"
 listing:
-  contents: posts
+  contents: posts/**/*.qmd
   sort: "date desc"
-  type: default
+  sort-ui: [title, date]
+  filter-ui: [title, date]
+  type: table
   categories: true
+  feed: true
+  fields: [image, date, title, author, reading-time]
 ---

@@ -1,0 +1,135 @@
+---
+title: "JavaScript Closures, Scope, and `this` keyword"
+description: "My note on how JavaScript access variables"
+author: "Lexun Yu"
+date: "2025-12-01"
+bibliography: references.bib
+
+categories:
+  - javascript
+  - coding
+---
+
+## Introduction
+
+Recently I have been learning JavaScript following [The Odin Project](https://www.theodinproject.com/). I came across this idea of closure and scope, which I was not familiar with during my Python learning. After experimenting with the Node.js debugger, the concept started making sense to me. I think it is worth recording and sharing in case someone has the same struggles. 
+
+
+## Scopes, Lexical Scoping
+
+@theodinprojectFactoryFunctionsModule defines scope as the current context of a variable. When a variable is not declared within any functions, existing outside any { curly braces }, they are said to be in the global scope, meaning that they are available everywhere. If they are within a function or { curly braces }, they are known to be locally scoped. 
+
+When any function is run, the function only cares about the scope in which it was defined. I understand this as lexical scoping. This is mentioned in [this](https://wesbos.com/javascript/03-the-tricky-bits/scope#lexical-and-static-scoping) article by @wesbosScope. 
+
+Moreover, `var` is function scoped, `let` and `const` are block scoped (scoped in {}). `const` cannot be reassigned, `let` can be reassigned.
+
+These are very clearly demonstrated in TOP's sample: 
+
+```javascript
+let globalAge = 23; // This is a global variable
+// This is a function - and hey, a curly brace indicating a block
+function printAge (age) {
+  var varAge = 34; // This is a function scoped variable
+// This is yet another curly brace, and thus a block
+  if (age > 0) {
+    // This is a block-scoped variable that exists
+    // within its nearest enclosing block, the if's block
+    const constAge = age * 2;
+    console.log(constAge);
+  }
+// ERROR! We tried to access a block scoped variable
+  // not within its scope
+  console.log(constAge);
+}
+printAge(globalAge);
+// ERROR! We tried to access a function scoped variable
+// outside the function it's defined in
+console.log(varAge);
+```
+
+## Closure and Scope Chain in JavaScript
+
+
+Functions in JavaScript form closures. A closure refers to the **combination of a function and the surrounding state in which the function was declared**. This surrounding state, also called its lexical environment, consists of **any local variables that were in scope at the time the closure was made**. Here is an example: 
+
+![`makeAdding()` example](img/makeAdding.png){#fig-makeadding .lightbox}
+
+Here, `add5` is a reference to the resulting function, created when the makeAdding function is executed, thus it has access to the lexical environment of the resulting function, which contains the first variable, making it available for use. The `first` variable is stored inside the `Scope[0]` closure with the returned function assigned to `add5`, on top of the Global scope.
+
+So I came up with another understanding of closure, which is the ability to access a parent level scope from a child scope, even after the parent function has been terminated. The closure keeps its state between calls.
+
+I asked GPT to generate another example for me, so I am able to examine the variables at the deeper level in the call stack easier literally. Here is the example and the call stack of the inner function when `innerFn()` ran.
+
+![](img/outerinner.png){#fig-innerouter .lightbox}
+
+In this example, the `outerVar` exists in the scope before the function is called, just like the previous example. When the execution enters the inner function, the outerVar is stored in the Closure, and innerVar is stored in local as shown on the left side of @fig-innerouter.
+
+### Nesting the Scopes
+
+The closure process can be nested. Here is another code snipet created by GPT. You can have functions returning functions at multiple levels, and each inner function will "remember" all the variables from its own scope and all outer scopes up the chain. (but only when the outer variables are actually used)
+
+```javascript
+function outer(a) {
+  return function middle(b) {
+    return function inner(c) {
+      return a + b + c;
+    };
+  };
+}
+
+const f = outer(1);      // returns middle, remembers a=1
+const g = f(2);          // returns inner, remembers b=2
+console.log(g(3));       // 1 + 2 + 3 = 6
+```
+
+The scope of the inner and middle function is shown in @fig-nested. I also drawn the hypothetical layers of local, closure and global variable according to my understanding. 
+
+![](img/nestedclosure.png){#fig-nested .lightbox}
+
+## The `this` Keyword and Context
+
+But what if I want to access variables outside the defined function scope and its outer scope? This is where the `this` keyword comes in. `this` refers to the object that owns the function or method currently being executed. When you call a method on an object, `this` will refer to that object.
+
+
+You can also explicitly set which object `this` refers to by using methods like `.call()`, `.apply()`, or `.bind()`. This allows you to control the context in which a function executes. Take this as an example: 
+
+![](img/alicebob.png){#fig-alicebob .lightbox}
+
+In JavaScript, the value of `this` inside a function is determined by how the function is called, not where it is defined. When you access `this.name` inside the returned function, JavaScript looks at the current value of `this` and tries to find a `name` property on that object.
+
+- When you call `person.greet("Alice")`, JavaScript sets `this` to the `person` object because `greet` is called as a method of `person`. So, `this.name` is `person.name`, which is "Bob".
+
+- The object `person` is transferred into the local variables section of the greeter function, marked as `this` in @fig-alicebob. Under the `this` object in local variable, there is a `name = 'Bob'`. 
+
+### Exploring Shadowing
+
+```javascript
+function createGreeter(greeting) {
+  let name = "default";
+  return function() {
+    console.log(name);
+    name = "defaultname";
+    return `${greeting}, ${name} (this.name: ${this.name})`;
+  };
+}
+
+const greeter = createGreeter("Hello");
+const person = { name: "Bob", greet: greeter };
+console.log(person.greet("Alice")); // "Hello, defaultname (this.name: Bob)"
+```
+
+In this example, there are two different variables named `name`, and this demonstrates the concept of shadowing:
+
+- The first is the local variable `let name = "default";` inside `createGreeter`. This variable is only accessible within the closure created by `createGreeter` and its returned function. It is updated to `"defaultname"` after the first call.
+- The second is the `name` property on the `person` object (`person.name = "Bob"`), which is accessed via `this.name` inside the returned function.
+
+When you call `person.greet("Alice")`, inside the function:
+
+- `name` refers to the local variable, which starts as `"default"` and is then changed to `"defaultname"`.
+- `this.name` refers to the property of the object that is the current `this` context, which is `person`, so `this.name` is `"Bob"`.
+
+Although the name is confusing, now we have two things, a variable `name = 'defaultname'` shadowing the 'default' name in the createGreeter function, and an object `this` with a `name = 'Bob'` variable. So the output becomes `"Hello, defaultname (this.name: Bob)"`.
+
+## Notes
+
+I hope this article helps, documenting these also help me understand the concept better. You can leave a comment below.

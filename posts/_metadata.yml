@@ -3,7 +3,6 @@
 # freeze computational output
 freeze: true
 
-listing:
-  sort: "date desc"
-  type: default
-  categories: true
+comments:
+  giscus: 
+    repo: yulexun/portfolio_quarto_site

@@ -1,9 +1,10 @@
 project:
   type: website
+  output-dir: _site
 
 website:
-  title: "Lexun Yu"
-  site-url: "/docs/"
+  title: "**LY**"
+  site-url: https://blog.prpr.one
   navbar:
     left:
       - href: index.qmd
@@ -14,8 +15,8 @@ website:
         text: About
     right:
       - href: "https://prpr.one"
-        text: "⬅️ Back to PRPR.ONE"
-
+        text: "⬅️ *Back to PRPR.ONE*"
+  
 format:
   html:
     theme:

@@ -11,28 +11,28 @@
     "href": "posts/writingsamples.html",
     "title": "Writing Samples",
     "section": "",
-    "text": "Essays and Case Studies\n\nCase Study: Media Ethic Analysis of John Naughton’s AI Cheating Article\nGhost in the Shell, Cities and Modernity in Japan\n\n\n\nResearch Paper (Statistics)\n\nExploring Nonlinear Atmospheric Influences on Temperature Using Polynomial Regression at Vancouver International Airport\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to My Blog\n\n\n\nintroduction\n\n\n\nIntroduction to the blog\n\n\n\n\n\nNov 18, 2025\n\n\nLexun Yu\n\n\n\n\n\nNo matching items"
+    "text": "Essays and Case Studies\n\nCase Study: Media Ethic Analysis of John Naughton’s AI Cheating Article\nGhost in the Shell, Cities and Modernity in Japan\n\n\n\nResearch Paper (Statistics)\n\nExploring Nonlinear Atmospheric Influences on Temperature Using Polynomial Regression at Vancouver International Airport"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Portfolio",
+    "objectID": "posts/firstpost.html",
+    "href": "posts/firstpost.html",
+    "title": "Welcome to My Blog",
     "section": "",
-    "text": "A self-hosted website featuring an original interactive fiction game, built with HTML, CSS, JavaScript (frontend), Node.js/Express (backend), and CloudNativePG. Deployed on a home Kubernetes cluster with CI/CD, auto-scaling, and automated backups.\nVisit -›\n\n\n\n\nA proof-of-concept interactive novel inspired by Emily Short’s Galatea. Built with web technologies and the Twine/SugarCube framework, featuring pre-rendered visuals and a branching narrative.\nVisit -›"
+    "text": "Welcome to my blog! This is the first post where I introduce myself and what this blog is about."
   },
   {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Portfolio",
+    "objectID": "posts/firstpost.html#what-to-expect",
+    "href": "posts/firstpost.html#what-to-expect",
+    "title": "Welcome to My Blog",
+    "section": "What to Expect",
+    "text": "What to Expect\n\nMy thoughts on movies, shows and books\nPersonal projects and updates\n\nStay tuned for more content!"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "A self-hosted website featuring an original interactive fiction game, built with HTML, CSS, JavaScript (frontend), Node.js/Express (backend), and CloudNativePG. Deployed on a home Kubernetes cluster with CI/CD, auto-scaling, and automated backups.\nVisit -›\n\n\n\n\nA proof-of-concept interactive novel inspired by Emily Short’s Galatea. Built with web technologies and the Twine/SugarCube framework, featuring pre-rendered visuals and a branching narrative.\nVisit -›"
-  },
-  {
-    "objectID": "index.html#writing-samples",
-    "href": "index.html#writing-samples",
-    "title": "Portfolio",
-    "section": "Writing Samples",
-    "text": "Writing Samples\nExplore my writings on literature reviews, book and movie critiques, and cultural and media studies.\nVisit -›"
+    "text": "Order By\n      Default\n      \n        Title\n      \n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\n \n\n\n\nDate\n\n\n\nTitle\n\n\n\nAuthor\n\n\n\nReading Time\n\n\n\n\n\n\n\n\n\n\n\nDec 1, 2025\n\n\nJavaScript Closures, Scope, and this keyword\n\n\nLexun Yu\n\n\n6 min\n\n\n\n\n\n\n\n\n\nNov 18, 2025\n\n\nWelcome to My Blog\n\n\nLexun Yu\n\n\n1 min\n\n\n\n\n\n\n\n\n\nNov 18, 2025\n\n\nWriting Samples\n\n\nLexun Yu\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -63,25 +63,67 @@
     "text": "CompTIA Network+ (2024)"
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Portfolio",
     "section": "",
-    "text": "Welcome to My Blog\n\n\n\nintroduction\n\n\n\nIntroduction to the blog\n\n\n\n\n\nNov 18, 2025\n\n\nLexun Yu\n\n\n\n\n\n\n\n\n\n\n\n\nWriting Samples\n\n\n\nwriting\n\nmedia studies\n\n\n\nCollection of my writings\n\n\n\n\n\nNov 18, 2025\n\n\nLexun Yu\n\n\n\n\n\nNo matching items"
+    "text": "A self-hosted website featuring an original interactive fiction game, built with HTML, CSS, JavaScript (frontend), Node.js/Express (backend), and CloudNativePG. Deployed on a home Kubernetes cluster with CI/CD, auto-scaling, and automated backups.\nVisit -›\n\n\n\n\nA proof-of-concept interactive novel inspired by Emily Short’s Galatea. Built with web technologies and the Twine/SugarCube framework, featuring pre-rendered visuals and a branching narrative.\nVisit -›"
   },
   {
-    "objectID": "posts/firstpost.html",
-    "href": "posts/firstpost.html",
-    "title": "Welcome to My Blog",
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Portfolio",
     "section": "",
-    "text": "Welcome to my blog! This is the first post where I introduce myself and what this blog is about."
+    "text": "A self-hosted website featuring an original interactive fiction game, built with HTML, CSS, JavaScript (frontend), Node.js/Express (backend), and CloudNativePG. Deployed on a home Kubernetes cluster with CI/CD, auto-scaling, and automated backups.\nVisit -›\n\n\n\n\nA proof-of-concept interactive novel inspired by Emily Short’s Galatea. Built with web technologies and the Twine/SugarCube framework, featuring pre-rendered visuals and a branching narrative.\nVisit -›"
   },
   {
-    "objectID": "posts/firstpost.html#what-to-expect",
-    "href": "posts/firstpost.html#what-to-expect",
-    "title": "Welcome to My Blog",
-    "section": "What to Expect",
-    "text": "What to Expect\n\nMy thoughts on movies, shows and books\nPersonal projects and updates\n\nStay tuned for more content!"
+    "objectID": "index.html#writing-samples",
+    "href": "index.html#writing-samples",
+    "title": "Portfolio",
+    "section": "Writing Samples",
+    "text": "Writing Samples\nExplore my writings on literature reviews, book and movie critiques, and cultural and media studies.\nVisit -›"
+  },
+  {
+    "objectID": "posts/javascriptclosure/javascriptclosure.html",
+    "href": "posts/javascriptclosure/javascriptclosure.html",
+    "title": "JavaScript Closures, Scope, and this keyword",
+    "section": "",
+    "text": "Recently I have been learning JavaScript following The Odin Project. I came across this idea of closure and scope, which I was not familiar with during my Python learning. After experimenting with the Node.js debugger, the concept started making sense to me. I think it is worth recording and sharing in case someone has the same struggles."
+  },
+  {
+    "objectID": "posts/javascriptclosure/javascriptclosure.html#introduction",
+    "href": "posts/javascriptclosure/javascriptclosure.html#introduction",
+    "title": "JavaScript Closures, Scope, and this keyword",
+    "section": "",
+    "text": "Recently I have been learning JavaScript following The Odin Project. I came across this idea of closure and scope, which I was not familiar with during my Python learning. After experimenting with the Node.js debugger, the concept started making sense to me. I think it is worth recording and sharing in case someone has the same struggles."
+  },
+  {
+    "objectID": "posts/javascriptclosure/javascriptclosure.html#scopes-lexical-scoping",
+    "href": "posts/javascriptclosure/javascriptclosure.html#scopes-lexical-scoping",
+    "title": "JavaScript Closures, Scope, and this keyword",
+    "section": "Scopes, Lexical Scoping",
+    "text": "Scopes, Lexical Scoping\nThe Odin Project (n.d.) defines scope as the current context of a variable. When a variable is not declared within any functions, existing outside any { curly braces }, they are said to be in the global scope, meaning that they are available everywhere. If they are within a function or { curly braces }, they are known to be locally scoped.\nWhen any function is run, the function only cares about the scope in which it was defined. I understand this as lexical scoping. This is mentioned in this article by Wes Bos (n.d.).\nMoreover, var is function scoped, let and const are block scoped (scoped in {}). const cannot be reassigned, let can be reassigned.\nThese are very clearly demonstrated in TOP’s sample:\nlet globalAge = 23; // This is a global variable\n// This is a function - and hey, a curly brace indicating a block\nfunction printAge (age) {\n  var varAge = 34; // This is a function scoped variable\n// This is yet another curly brace, and thus a block\n  if (age &gt; 0) {\n    // This is a block-scoped variable that exists\n    // within its nearest enclosing block, the if's block\n    const constAge = age * 2;\n    console.log(constAge);\n  }\n// ERROR! We tried to access a block scoped variable\n  // not within its scope\n  console.log(constAge);\n}\nprintAge(globalAge);\n// ERROR! We tried to access a function scoped variable\n// outside the function it's defined in\nconsole.log(varAge);"
+  },
+  {
+    "objectID": "posts/javascriptclosure/javascriptclosure.html#closure-and-scope-chain-in-javascript",
+    "href": "posts/javascriptclosure/javascriptclosure.html#closure-and-scope-chain-in-javascript",
+    "title": "JavaScript Closures, Scope, and this keyword",
+    "section": "Closure and Scope Chain in JavaScript",
+    "text": "Closure and Scope Chain in JavaScript\nFunctions in JavaScript form closures. A closure refers to the combination of a function and the surrounding state in which the function was declared. This surrounding state, also called its lexical environment, consists of any local variables that were in scope at the time the closure was made. Here is an example:\n\n\n\n\n\n\nFigure 1: makeAdding() example\n\n\n\nHere, add5 is a reference to the resulting function, created when the makeAdding function is executed, thus it has access to the lexical environment of the resulting function, which contains the first variable, making it available for use. The first variable is stored inside the Scope[0] closure with the returned function assigned to add5, on top of the Global scope.\nSo I came up with another understanding of closure, which is the ability to access a parent level scope from a child scope, even after the parent function has been terminated. The closure keeps its state between calls.\nI asked GPT to generate another example for me, so I am able to examine the variables at the deeper level in the call stack easier literally. Here is the example and the call stack of the inner function when innerFn() ran.\n\n\n\n\n\n\nFigure 2\n\n\n\nIn this example, the outerVar exists in the scope before the function is called, just like the previous example. When the execution enters the inner function, the outerVar is stored in the Closure, and innerVar is stored in local as shown on the left side of Figure 2.\n\nNesting the Scopes\nThe closure process can be nested. Here is another code snipet created by GPT. You can have functions returning functions at multiple levels, and each inner function will “remember” all the variables from its own scope and all outer scopes up the chain. (but only when the outer variables are actually used)\nfunction outer(a) {\n  return function middle(b) {\n    return function inner(c) {\n      return a + b + c;\n    };\n  };\n}\n\nconst f = outer(1);      // returns middle, remembers a=1\nconst g = f(2);          // returns inner, remembers b=2\nconsole.log(g(3));       // 1 + 2 + 3 = 6\nThe scope of the inner and middle function is shown in Figure 3. I also drawn the hypothetical layers of local, closure and global variable according to my understanding.\n\n\n\n\n\n\nFigure 3"
+  },
+  {
+    "objectID": "posts/javascriptclosure/javascriptclosure.html#the-this-keyword-and-context",
+    "href": "posts/javascriptclosure/javascriptclosure.html#the-this-keyword-and-context",
+    "title": "JavaScript Closures, Scope, and this keyword",
+    "section": "The this Keyword and Context",
+    "text": "The this Keyword and Context\nBut what if I want to access variables outside the defined function scope and its outer scope? This is where the this keyword comes in. this refers to the object that owns the function or method currently being executed. When you call a method on an object, this will refer to that object.\nYou can also explicitly set which object this refers to by using methods like .call(), .apply(), or .bind(). This allows you to control the context in which a function executes. Take this as an example:\n\n\n\n\n\n\nFigure 4\n\n\n\nIn JavaScript, the value of this inside a function is determined by how the function is called, not where it is defined. When you access this.name inside the returned function, JavaScript looks at the current value of this and tries to find a name property on that object.\n\nWhen you call person.greet(\"Alice\"), JavaScript sets this to the person object because greet is called as a method of person. So, this.name is person.name, which is “Bob”.\nThe object person is transferred into the local variables section of the greeter function, marked as this in Figure 4. Under the this object in local variable, there is a name = 'Bob'.\n\n\nExploring Shadowing\nfunction createGreeter(greeting) {\n  let name = \"default\";\n  return function() {\n    console.log(name);\n    name = \"defaultname\";\n    return `${greeting}, ${name} (this.name: ${this.name})`;\n  };\n}\n\nconst greeter = createGreeter(\"Hello\");\nconst person = { name: \"Bob\", greet: greeter };\nconsole.log(person.greet(\"Alice\")); // \"Hello, defaultname (this.name: Bob)\"\nIn this example, there are two different variables named name, and this demonstrates the concept of shadowing:\n\nThe first is the local variable let name = \"default\"; inside createGreeter. This variable is only accessible within the closure created by createGreeter and its returned function. It is updated to \"defaultname\" after the first call.\nThe second is the name property on the person object (person.name = \"Bob\"), which is accessed via this.name inside the returned function.\n\nWhen you call person.greet(\"Alice\"), inside the function:\n\nname refers to the local variable, which starts as \"default\" and is then changed to \"defaultname\".\nthis.name refers to the property of the object that is the current this context, which is person, so this.name is \"Bob\".\n\nAlthough the name is confusing, now we have two things, a variable name = 'defaultname' shadowing the ‘default’ name in the createGreeter function, and an object this with a name = 'Bob' variable. So the output becomes \"Hello, defaultname (this.name: Bob)\"."
+  },
+  {
+    "objectID": "posts/javascriptclosure/javascriptclosure.html#notes",
+    "href": "posts/javascriptclosure/javascriptclosure.html#notes",
+    "title": "JavaScript Closures, Scope, and this keyword",
+    "section": "Notes",
+    "text": "Notes\nI hope this article helps, documenting these also help me understand the concept better. You can leave a comment below."
   },
   {
     "objectID": "writingsamples/GhostInTheShell/GhostInTheShell.html",

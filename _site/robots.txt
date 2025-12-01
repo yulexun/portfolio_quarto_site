@@ -1,1 +1,1 @@
-Sitemap: /docs/sitemap.xml
+Sitemap: https://blog.prpr.one/sitemap.xml
