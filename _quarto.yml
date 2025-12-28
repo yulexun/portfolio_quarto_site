@@ -26,3 +26,4 @@ format:
     css: styles.css
     toc: true
     respect-user-color-scheme: true
+    include-in-header: header.html
