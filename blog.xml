@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>LY</title>
+<link>https://blog.prpr.one/blog.html</link>
+<atom:link href="https://blog.prpr.one/blog.xml" rel="self" type="application/rss+xml"/>
+<description></description>
+<generator>quarto-1.8.27</generator>
+<lastBuildDate>Sun, 30 Nov 2025 16:00:00 GMT</lastBuildDate>
+<item>
+  <title>JavaScript Closures, Scope, and this keyword</title>
+  <dc:creator>Lexun Yu</dc:creator>
+  <link>https://blog.prpr.one/posts/javascriptclosure/javascriptclosure.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Recently I have been learning JavaScript following <a href="https://www.theodinproject.com/">The Odin Project</a>. I came across this idea of closure and scope, which I was not familiar with during my Python learning. After experimenting with the Node.js debugger, the concept started making sense to me. I think it is worth recording and sharing in case someone has the same struggles.</p>
+</section>
+<section id="scopes-lexical-scoping" class="level2">
+<h2 class="anchored" data-anchor-id="scopes-lexical-scoping">Scopes, Lexical Scoping</h2>
+<p><span class="citation" data-cites="theodinprojectFactoryFunctionsModule">The Odin Project (n.d.)</span> defines scope as the current context of a variable. When a variable is not declared within any functions, existing outside any { curly braces }, they are said to be in the global scope, meaning that they are available everywhere. If they are within a function or { curly braces }, they are known to be locally scoped.</p>
+<p>When any function is run, the function only cares about the scope in which it was defined. I understand this as lexical scoping. This is mentioned in <a href="https://wesbos.com/javascript/03-the-tricky-bits/scope#lexical-and-static-scoping">this</a> article by <span class="citation" data-cites="wesbosScope">Wes Bos (n.d.)</span>.</p>
+<p>Moreover, <code>var</code> is function scoped, <code>let</code> and <code>const</code> are block scoped (scoped in {}). <code>const</code> cannot be reassigned, <code>let</code> can be reassigned.</p>
+<p>These are very clearly demonstrated in TOP’s sample:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">let</span> globalAge <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// This is a global variable</span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// This is a function - and hey, a curly brace indicating a block</span></span>
+<span id="cb1-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">printAge</span> (age) {</span>
+<span id="cb1-4">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">var</span> varAge <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">34</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// This is a function scoped variable</span></span>
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// This is yet another curly brace, and thus a block</span></span>
+<span id="cb1-6">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> (age <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>) {</span>
+<span id="cb1-7">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// This is a block-scoped variable that exists</span></span>
+<span id="cb1-8">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// within its nearest enclosing block, the if's block</span></span>
+<span id="cb1-9">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> constAge <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> age <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-10">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(constAge)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-11">  }</span>
+<span id="cb1-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// ERROR! We tried to access a block scoped variable</span></span>
+<span id="cb1-13">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// not within its scope</span></span>
+<span id="cb1-14">  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(constAge)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-15">}</span>
+<span id="cb1-16"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">printAge</span>(globalAge)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// ERROR! We tried to access a function scoped variable</span></span>
+<span id="cb1-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// outside the function it's defined in</span></span>
+<span id="cb1-19"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(varAge)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span></code></pre></div></div>
+</section>
+<section id="closure-and-scope-chain-in-javascript" class="level2">
+<h2 class="anchored" data-anchor-id="closure-and-scope-chain-in-javascript">Closure and Scope Chain in JavaScript</h2>
+<p>Functions in JavaScript form closures. A closure refers to the <strong>combination of a function and the surrounding state in which the function was declared</strong>. This surrounding state, also called its lexical environment, consists of <strong>any local variables that were in scope at the time the closure was made</strong>. Here is an example:</p>
+<div id="fig-makeadding" class="lightbox quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-makeadding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="img/makeAdding.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: makeAdding() example"><img src="https://blog.prpr.one/posts/javascriptclosure/img/makeAdding.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-makeadding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: <code>makeAdding()</code> example
+</figcaption>
+</figure>
+</div>
+<p>Here, <code>add5</code> is a reference to the resulting function, created when the makeAdding function is executed, thus it has access to the lexical environment of the resulting function, which contains the first variable, making it available for use. The <code>first</code> variable is stored inside the <code>Scope[0]</code> closure with the returned function assigned to <code>add5</code>, on top of the Global scope.</p>
+<p>So I came up with another understanding of closure, which is the ability to access a parent level scope from a child scope, even after the parent function has been terminated. The closure keeps its state between calls.</p>
+<p>I asked GPT to generate another example for me, so I am able to examine the variables at the deeper level in the call stack easier literally. Here is the example and the call stack of the inner function when <code>innerFn()</code> ran.</p>
+<div id="fig-innerouter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-innerouter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="img/outerinner.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: "><img src="https://blog.prpr.one/posts/javascriptclosure/img/outerinner.png" id="fig-innerouter" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-innerouter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
+<p>In this example, the <code>outerVar</code> exists in the scope before the function is called, just like the previous example. When the execution enters the inner function, the outerVar is stored in the Closure, and innerVar is stored in local as shown on the left side of Figure&nbsp;2.</p>
+<section id="nesting-the-scopes" class="level3">
+<h3 class="anchored" data-anchor-id="nesting-the-scopes">Nesting the Scopes</h3>
+<p>The closure process can be nested. Here is another code snipet created by GPT. You can have functions returning functions at multiple levels, and each inner function will “remember” all the variables from its own scope and all outer scopes up the chain. (but only when the outer variables are actually used)</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">outer</span>(a) {</span>
+<span id="cb2-2">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">middle</span>(b) {</span>
+<span id="cb2-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">inner</span>(c) {</span>
+<span id="cb2-4">      <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> a <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> b <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> c<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-5">    }<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-6">  }<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb2-7">}</span>
+<span id="cb2-8"></span>
+<span id="cb2-9"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> f <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">outer</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// returns middle, remembers a=1</span></span>
+<span id="cb2-10"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> g <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>          <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// returns inner, remembers b=2</span></span>
+<span id="cb2-11"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">g</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span>       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// 1 + 2 + 3 = 6</span></span></code></pre></div></div>
+<p>The scope of the inner and middle function is shown in Figure&nbsp;3. I also drawn the hypothetical layers of local, closure and global variable according to my understanding.</p>
+<div id="fig-nested" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nested-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="img/nestedclosure.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: "><img src="https://blog.prpr.one/posts/javascriptclosure/img/nestedclosure.png" id="fig-nested" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-nested-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="the-this-keyword-and-context" class="level2">
+<h2 class="anchored" data-anchor-id="the-this-keyword-and-context">The <code>this</code> Keyword and Context</h2>
+<p>But what if I want to access variables outside the defined function scope and its outer scope? This is where the <code>this</code> keyword comes in. <code>this</code> refers to the object that owns the function or method currently being executed. When you call a method on an object, <code>this</code> will refer to that object.</p>
+<p>You can also explicitly set which object <code>this</code> refers to by using methods like <code>.call()</code>, <code>.apply()</code>, or <code>.bind()</code>. This allows you to control the context in which a function executes. Take this as an example:</p>
+<div id="fig-alicebob" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-alicebob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="img/alicebob.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: "><img src="https://blog.prpr.one/posts/javascriptclosure/img/alicebob.png" id="fig-alicebob" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-alicebob-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4
+</figcaption>
+</figure>
+</div>
+<p>In JavaScript, the value of <code>this</code> inside a function is determined by how the function is called, not where it is defined. When you access <code>this.name</code> inside the returned function, JavaScript looks at the current value of <code>this</code> and tries to find a <code>name</code> property on that object.</p>
+<ul>
+<li><p>When you call <code>person.greet("Alice")</code>, JavaScript sets <code>this</code> to the <code>person</code> object because <code>greet</code> is called as a method of <code>person</code>. So, <code>this.name</code> is <code>person.name</code>, which is “Bob”.</p></li>
+<li><p>The object <code>person</code> is transferred into the local variables section of the greeter function, marked as <code>this</code> in Figure&nbsp;4. Under the <code>this</code> object in local variable, there is a <code>name = 'Bob'</code>.</p></li>
+</ul>
+<section id="exploring-shadowing" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-shadowing">Exploring Shadowing</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">createGreeter</span>(greeting) {</span>
+<span id="cb3-2">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">let</span> name <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"default"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-3">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>() {</span>
+<span id="cb3-4">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(name)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-5">    name <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"defaultname"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>greeting<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span>name<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> (this.name: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">${</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">this</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">name</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="vs" style="color: #20794D;
+background-color: null;
+font-style: inherit;">)`</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-7">  }<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-8">}</span>
+<span id="cb3-9"></span>
+<span id="cb3-10"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> greeter <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">createGreeter</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hello"</span>)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-11"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">const</span> person <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> { <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">name</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Bob"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">greet</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span> greeter }<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb3-12"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">console</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(person<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">.</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">greet</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Alice"</span>))<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">// "Hello, defaultname (this.name: Bob)"</span></span></code></pre></div></div>
+<p>In this example, there are two different variables named <code>name</code>, and this demonstrates the concept of shadowing:</p>
+<ul>
+<li>The first is the local variable <code>let name = "default";</code> inside <code>createGreeter</code>. This variable is only accessible within the closure created by <code>createGreeter</code> and its returned function. It is updated to <code>"defaultname"</code> after the first call.</li>
+<li>The second is the <code>name</code> property on the <code>person</code> object (<code>person.name = "Bob"</code>), which is accessed via <code>this.name</code> inside the returned function.</li>
+</ul>
+<p>When you call <code>person.greet("Alice")</code>, inside the function:</p>
+<ul>
+<li><code>name</code> refers to the local variable, which starts as <code>"default"</code> and is then changed to <code>"defaultname"</code>.</li>
+<li><code>this.name</code> refers to the property of the object that is the current <code>this</code> context, which is <code>person</code>, so <code>this.name</code> is <code>"Bob"</code>.</li>
+</ul>
+<p>Although the name is confusing, now we have two things, a variable <code>name = 'defaultname'</code> shadowing the ‘default’ name in the createGreeter function, and an object <code>this</code> with a <code>name = 'Bob'</code> variable. So the output becomes <code>"Hello, defaultname (this.name: Bob)"</code>.</p>
+</section>
+</section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<p>I hope this article helps, documenting these also help me understand the concept better. You can leave a comment below.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-theodinprojectFactoryFunctionsModule" class="csl-entry">
+The Odin Project. n.d. <span>“Factory <span>Functions</span> and the <span>Module Pattern</span>.”</span> <em>The Odin Project</em>. https://www.theodinproject.com/lessons/node-path-javascript-factory-functions-and-the-module-pattern. Accessed December 1, 2025.
+</div>
+<div id="ref-wesbosScope" class="csl-entry">
+Wes Bos. n.d. <span>“Scope.”</span> <em>Wes Bos</em>. https://wesbos.com/javascript/03-the-tricky-bits/scope. Accessed December 1, 2025.
+</div>
+</div></section></div> ]]></description>
+  <category>javascript</category>
+  <category>coding</category>
+  <guid>https://blog.prpr.one/posts/javascriptclosure/javascriptclosure.html</guid>
+  <pubDate>Sun, 30 Nov 2025 16:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Welcome to My Blog</title>
+  <dc:creator>Lexun Yu</dc:creator>
+  <link>https://blog.prpr.one/posts/firstpost.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Welcome to my blog! This is the first post where I introduce myself and what this blog is about.</p>
+<section id="what-to-expect" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-expect">What to Expect</h2>
+<ul>
+<li>My thoughts on movies, shows and books</li>
+<li>Personal projects and updates</li>
+</ul>
+<p>Stay tuned for more content!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>introduction</category>
+  <guid>https://blog.prpr.one/posts/firstpost.html</guid>
+  <pubDate>Mon, 17 Nov 2025 16:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Writing Samples</title>
+  <dc:creator>Lexun Yu</dc:creator>
+  <link>https://blog.prpr.one/posts/writingsamples.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="essays-and-case-studies" class="level1">
+
+<ul>
+<li><a href="../writingsamples/MediaEthicsJohn/MediaEthicsJohn.html">Case Study: Media Ethic Analysis of John Naughton’s AI Cheating Article</a></li>
+<li><a href="../writingsamples/GhostInTheShell/GhostInTheShell.html"><em>Ghost in the Shell</em>, Cities and Modernity in Japan</a></li>
+</ul>
+</section>
+<section id="research-paper-statistics" class="level1">
+<h1>Research Paper (Statistics)</h1>
+<ul>
+<li><a href="https://github.com/yulexun/ClimateChangeYVR">Exploring Nonlinear Atmospheric Influences on Temperature Using Polynomial Regression at Vancouver International Airport</a></li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>writing</category>
+  <category>media studies</category>
+  <guid>https://blog.prpr.one/posts/writingsamples.html</guid>
+  <pubDate>Mon, 17 Nov 2025 16:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
