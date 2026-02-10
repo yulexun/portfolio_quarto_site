@@ -11,7 +11,7 @@ about:
       text: GitHub
       href: https://github.com/yulexun
     - icon: envelope
-      text: Email
+      text: lyu@prpr.one
       href: mailto:lyu@prpr.one
 ---
 
