@@ -21,9 +21,20 @@ I'm Lexun Yu, a tech enthusiast based in Beijing with experience in cloud, DevOp
 
 ## Skills
 
-- Python, R, SQL, HTML, CSS, JavaScript, Bash, YAML
-- Docker, Linux containers, Kubernetes, Azure, Networking
-- Git, GitHub Actions, Terraform, Ansible, FluxCD, Prometheus, Grafana, Jupyter, Quarto, Typst
+**Programming Languages & Scripting**
+- Python, Bash, JavaScript, HTML, CSS, R, SQL, Groovy
+
+**Cloud & Infrastructure**
+- Docker, Docker Swarm, Kubernetes, QEMU/KVM, Linux, Nginx, Azure, Networking
+
+**DevOps & Automation**
+- Git, CI/CD (Jenkins, GitHub Actions, GitLab CI/CD), Terraform, Ansible, FluxCD
+
+**Monitoring & Visualization**
+- Prometheus, Grafana, Loki
+
+**Documentation & Publishing**
+- Jupyter, Quarto, Typst
 
 ## Education
 
