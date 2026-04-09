@@ -20,9 +20,6 @@ jobs:
       - name: Render site
         run: quarto render
 
-      - name: Add CNAME file for custom domain
-        run: echo blog.prpr.one > _site/CNAME
-
       - name: Publish to GitHub Pages
         uses: rayluo/github-pages-overwriter@v1.3
         with:
