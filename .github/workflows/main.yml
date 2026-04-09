@@ -1,12 +1,13 @@
 name: Build and publish Quarto site
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
 
 jobs:
-  publish:
+  build-deploy:
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -17,11 +18,9 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render site
-        run: quarto render
-
-      - name: Publish to GitHub Pages
-        uses: rayluo/github-pages-overwriter@v1.3
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
         with:
-          source-directory: _site
-          target-branch: gh-pages
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
