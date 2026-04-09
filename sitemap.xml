@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.prpr.one/blog.html</loc>
-    <lastmod>2026-02-27T01:34:39.914Z</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.prpr.one/writingsamples/GhostInTheShell/GhostInTheShell.html</loc>
-    <lastmod>2026-02-27T01:34:39.918Z</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.prpr.one/index.html</loc>
-    <lastmod>2026-03-10T03:30:06.092Z</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.prpr.one/posts/firstpost.html</loc>
-    <lastmod>2026-02-27T01:34:39.916Z</lastmod>
-  </url>
-  <url>
     <loc>https://blog.prpr.one/posts/writingsamples.html</loc>
-    <lastmod>2026-02-27T01:34:39.916Z</lastmod>
+    <lastmod>2026-04-09T03:22:59.688Z</lastmod>
   </url>
   <url>
     <loc>https://blog.prpr.one/posts/javascriptclosure/javascriptclosure.html</loc>
-    <lastmod>2026-02-27T01:34:39.916Z</lastmod>
+    <lastmod>2026-04-09T03:22:59.688Z</lastmod>
   </url>
   <url>
-    <loc>https://blog.prpr.one/about.html</loc>
-    <lastmod>2026-04-09T03:09:34.226Z</lastmod>
+    <loc>https://blog.prpr.one/index.html</loc>
+    <lastmod>2026-04-09T03:22:59.685Z</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.prpr.one/writingsamples/GhostInTheShell/GhostInTheShell.html</loc>
+    <lastmod>2026-04-09T03:22:59.688Z</lastmod>
   </url>
   <url>
     <loc>https://blog.prpr.one/writingsamples/MediaEthicsJohn/MediaEthicsJohn.html</loc>
-    <lastmod>2026-02-27T01:34:39.919Z</lastmod>
+    <lastmod>2026-04-09T03:22:59.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.prpr.one/about.html</loc>
+    <lastmod>2026-04-09T03:22:59.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.prpr.one/blog.html</loc>
+    <lastmod>2026-04-09T03:22:59.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.prpr.one/posts/firstpost.html</loc>
+    <lastmod>2026-04-09T03:22:59.685Z</lastmod>
   </url>
 </urlset>
