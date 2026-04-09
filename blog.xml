@@ -10,7 +10,7 @@
 <atom:link href="https://blog.prpr.one/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.9.36</generator>
-<lastBuildDate>Sun, 30 Nov 2025 16:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 01 Dec 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>JavaScript Closures, Scope, and this keyword</title>
   <dc:creator>Lexun Yu</dc:creator>
@@ -447,7 +447,7 @@ Wes Bos. n.d. <span>“Scope.”</span> In <em>Wes Bos</em>. Https://wesbos.com/
   <category>javascript</category>
   <category>coding</category>
   <guid>https://blog.prpr.one/posts/javascriptclosure/javascriptclosure.html</guid>
-  <pubDate>Sun, 30 Nov 2025 16:00:00 GMT</pubDate>
+  <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Welcome to My Blog</title>
@@ -474,7 +474,7 @@ Wes Bos. n.d. <span>“Scope.”</span> In <em>Wes Bos</em>. Https://wesbos.com/
  ]]></description>
   <category>introduction</category>
   <guid>https://blog.prpr.one/posts/firstpost.html</guid>
-  <pubDate>Mon, 17 Nov 2025 16:00:00 GMT</pubDate>
+  <pubDate>Tue, 18 Nov 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Writing Samples</title>
@@ -506,7 +506,7 @@ Wes Bos. n.d. <span>“Scope.”</span> In <em>Wes Bos</em>. Https://wesbos.com/
   <category>writing</category>
   <category>media studies</category>
   <guid>https://blog.prpr.one/posts/writingsamples.html</guid>
-  <pubDate>Mon, 17 Nov 2025 16:00:00 GMT</pubDate>
+  <pubDate>Tue, 18 Nov 2025 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
