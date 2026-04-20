@@ -9,7 +9,7 @@
 <link>https://blog.prpr.one/blog.html</link>
 <atom:link href="https://blog.prpr.one/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.9.36</generator>
+<generator>quarto-1.9.37</generator>
 <lastBuildDate>Mon, 01 Dec 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>JavaScript Closures, Scope, and this keyword</title>
