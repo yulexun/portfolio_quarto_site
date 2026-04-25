@@ -1,0 +1,57 @@
+{
+  "lockfile_version": "1",
+  "packages": {
+    "github:NixOS/nixpkgs/nixpkgs-unstable": {
+      "last_modified": "2026-04-16T08:46:55Z",
+      "resolved": "github:NixOS/nixpkgs/b86751bc4085f48661017fa226dee99fab6c651b?lastModified=1776329215"
+    },
+    "quarto@latest": {
+      "last_modified": "2026-04-16T08:46:55Z",
+      "resolved": "github:NixOS/nixpkgs/b86751bc4085f48661017fa226dee99fab6c651b#quarto",
+      "source": "devbox-search",
+      "version": "1.8.26",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/v4kk5028kxni021p60ws8ydgvsfbaad3-quarto-1.8.26",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/v4kk5028kxni021p60ws8ydgvsfbaad3-quarto-1.8.26"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/diqrv0b1gljy4b4cj0xysg1jqsvd9gn9-quarto-1.8.26",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/diqrv0b1gljy4b4cj0xysg1jqsvd9gn9-quarto-1.8.26"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3l2nf35bn4phi3r8mm540r8k0by345f8-quarto-1.8.26",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3l2nf35bn4phi3r8mm540r8k0by345f8-quarto-1.8.26"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9y19yq7842p72l9nmqdbs1s3cddzld9m-quarto-1.8.26",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9y19yq7842p72l9nmqdbs1s3cddzld9m-quarto-1.8.26"
+        }
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@
 <link>https://blog.prpr.one/blog.html</link>
 <atom:link href="https://blog.prpr.one/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.9.36</generator>
+<generator>quarto-1.8.26</generator>
 <lastBuildDate>Sun, 30 Nov 2025 16:00:00 GMT</lastBuildDate>
 <item>
   <title>JavaScript Closures, Scope, and this keyword</title>
@@ -436,12 +436,12 @@ font-style: inherit;">// "Hello, defaultname (this.name: Bob)"</span></span></co
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-theodinprojectFactoryFunctionsModule" class="csl-entry">
-The Odin Project. n.d. <span>“Factory <span>Functions</span> and the <span>Module Pattern</span>.”</span> In <em>The Odin Project</em>. Https://www.theodinproject.com/lessons/node-path-javascript-factory-functions-and-the-module-pattern.
+The Odin Project. n.d. <span>“Factory <span>Functions</span> and the <span>Module Pattern</span>.”</span> <em>The Odin Project</em>. https://www.theodinproject.com/lessons/node-path-javascript-factory-functions-and-the-module-pattern. Accessed December 1, 2025.
 </div>
 <div id="ref-wesbosScope" class="csl-entry">
-Wes Bos. n.d. <span>“Scope.”</span> In <em>Wes Bos</em>. Https://wesbos.com/javascript/03-the-tricky-bits/scope.
+Wes Bos. n.d. <span>“Scope.”</span> <em>Wes Bos</em>. https://wesbos.com/javascript/03-the-tricky-bits/scope. Accessed December 1, 2025.
 </div>
 </div></section></div> ]]></description>
   <category>javascript</category>
